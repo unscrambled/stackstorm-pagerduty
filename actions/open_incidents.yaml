@@ -1,0 +1,5 @@
+name: get_open_incidents
+runner-type: run-python
+description: Retrieve a list of open incidents from PagerDuty
+enable: true
+entry_point: open_incidents.py
