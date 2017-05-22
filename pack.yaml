@@ -4,3 +4,4 @@ name: pagerduty_v2
 description: Pack which allows integration with PagerDuty apis.
 version: 0.1.0
 author: Unscrambled Ops, Inc.
+email: chris@unscrambledops.com
