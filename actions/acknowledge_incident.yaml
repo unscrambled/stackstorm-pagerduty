@@ -1,7 +1,7 @@
 name: acknowledge_incident
 runner_type: run-python
 description: ACKNOWLEDGE an incident on PagerDuty
-enable: true
+enabled: true
 entry_point: acknowledge_incident.py
 parameters:
   event_keys:
