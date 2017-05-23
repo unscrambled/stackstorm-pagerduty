@@ -1,7 +1,7 @@
 ---
-ref: pagerduty_v2
-name: pagerduty_v2
-description: Pack which allows integration with PagerDuty apis.
+ref: pagerduty
+name: pagerduty
+description: Pack which allows integration with PagerDuty's v2 API.
 version: 0.1.0
 author: Unscrambled Ops, Inc.
 email: chris@unscrambledops.com

@@ -1,0 +1,17 @@
+---
+name: "ack"
+pack: "pagerduty"
+action_ref: "pagerduty.acknowledge_incident"
+description: "Ack an Incident"
+formats:
+  - "ack {{event_keys}}"
+ack:
+  enabled: false
+  apend_url: false
+result:
+  format: |
+    {% if execution.status == 'succeeded' %}
+    All incidents acknowledged.
+    {% else %}
+    Error: {{execution.result.stdout}}{{~}}See {{execution.id}} for more details.
+    {% endif %}

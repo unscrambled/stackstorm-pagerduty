@@ -1,9 +1,18 @@
 name: acknowledge_incident
-runner_type: run-python
+runner_type: python-script
 description: ACKNOWLEDGE an incident on PagerDuty
 enabled: true
 entry_point: acknowledge_incident.py
 parameters:
   event_keys:
-    type: array
-    description: Key for event to be acknowledged, You can also Provide comma separated keys
+    type: string
+    required: true
+    description: Key for event to be acknowledged. You can also provide comma separated keys.
+  from_email:
+    type: string
+    description: The email of the user acknowledging the incident.
+  api_user:
+    type: string
+    description: API/Chatops User of this action.
+    default: "{{action_context.api_user|default(None)}}"
+    immutable: true
