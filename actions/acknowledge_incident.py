@@ -26,8 +26,8 @@ class AcknowldgeIncident(PDAction):
                     self.logger.info("Found from_email in passed arguments")
 
             if email == None:
-                self.logger.error("Could not find email from api_user {} nor
-                                  from_email".format(kwargs['api_user']))
+                self.logger.error(
+                    "Could not find email from api_user {} nor from_email".format(kwargs['api_user']))
                 return (False, "I don't know who you are")
 
             if isinstance(event_keys, str):

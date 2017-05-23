@@ -13,5 +13,6 @@ result:
     {% if execution.status == 'succeeded' %}
     All incidents acknowledged.
     {% else %}
-    Error: {{execution.result.stdout}}{{~}}See {{execution.id}} for more details.
+    Error: {{execution.result.result.error}}{~}
+    See `{{execution.id}}` for more details.
     {% endif %}
