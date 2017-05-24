@@ -1,7 +1,7 @@
 ---
 name: "incidents"
 pack: "pagerduty"
-action_ref: "pagerduty.open_incidents"
+action_ref: "pagerduty.get_incidents"
 description: "Display open incidents"
 formats:
   - "incidents {{statuses=triggered,acknowledged}} {{limit=5}}"
