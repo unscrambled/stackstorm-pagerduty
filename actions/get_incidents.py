@@ -8,6 +8,8 @@ class OpenIncidents(PDAction):
         results = {'incidents': []}
 
         try:
+            if isinstance(statuses, basestring):
+                statuses = [s.strip() for s in statuses.split(',')]
             results['incidents'] = self.pypd.Incident.find(
                 sort_by=sort_by, statuses=statuses, limit=limit)
             status = True
