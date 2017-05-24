@@ -11,7 +11,7 @@ ack:
 result:
   format: |
     {% if execution.status == 'succeeded' %}
-    Thanks @{{execution.context.api_user}}!  I've saved {{execution.parameters.email}} as your PagerDuty email address.
+    Thanks! I've saved {{execution.parameters.email}} as your PagerDuty email address.
     {% else %}
     There was a problem, see `{{execution.id}}` for more details.
     {% endif %}
