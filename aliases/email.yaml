@@ -1,7 +1,7 @@
 ---
 name: "email"
 pack: "pagerduty"
-action_ref: "pagerduty.email"
+action_ref: "pagerduty.set_email"
 description: "Register your pagerduty email to your Chat username"
 formats:
   - "email {{email}}"
