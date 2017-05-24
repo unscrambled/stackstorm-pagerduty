@@ -5,10 +5,13 @@ action_ref: "pagerduty.set_email"
 description: "Register your pagerduty email to your Chat username"
 formats:
   - "email {{email}}"
+ack:
+  enabled: false
+  append_url: false
 result:
   format: |
     {% if execution.status == 'succeeded' %}
-    Thanks {{action_context.api_user}}!  I saved {{email}} as your PagerDuty email address.
+    Thanks @{{execution.context.api_user}}!  I've saved {{execution.parameters.email}} as your PagerDuty email address.
     {% else %}
     There was a problem, see `{{execution.id}}` for more details.
     {% endif %}
