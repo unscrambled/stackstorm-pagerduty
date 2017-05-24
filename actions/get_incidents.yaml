@@ -1,0 +1,18 @@
+name: get_incidents
+runner_type: python-script
+description: Retrieve a list of open incidents from PagerDuty
+enabled: true
+entry_point: get_incidents.py
+parameters:
+  statuses:
+    type: string
+    description: "A comma separated string of a list of statuses to filter on"
+    default: "triggered,acknowledged"
+  limit:
+    type: integer
+    description: Limit the number of incidents returned
+    default: 5
+  sort_by:
+    type: string
+    description: "A string sort order recognized by the PagerDuty v2 API"
+    default: "created_at:desc"
