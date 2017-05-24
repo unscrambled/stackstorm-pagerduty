@@ -7,16 +7,16 @@ formats:
   - "ack {{event_keys}}"
 ack:
   format: "Ok, I'm on it!"
+  append_url: false
 result:
   format: |
     {% if execution.status == 'succeeded' %}
     Incidents acknowledged:{~}
-    {% for id, incident in execution.result.result.acknowledged.iteritems() %}
-    {% acknowledgement = incident.acknowledgements[-1] %}
-    [{{id}}] {{incident.description}} ack'd at {{acknowledgement.at}}
+    {% for incident in execution.result.result.acknowledged.itervalues() %}
+    {{incident.summary}} acknowledged at {{incident.acknowledgements[-1].at}}
     {% endfor %}
     {% elif execution.result.result.error.type == 'UnknownUser' %}
-    Oops! {{execution.result.result.error.message}}
+    Oops! {{execution.result.result.error.message}}{~}
     {% else %}
-    Error: {{execution.result.result.error.message}}. See `{{execution.id}}` for more details.
+    Error: {{execution.result.result.error.message}}. See `{{execution.id}}` for more details.{~}
     {% endif %}

@@ -3,6 +3,6 @@ class UnknownUser(Exception):
                        "Please identify yourself with "
                        "`! pagerduty email <email_address>` first.")
 
-    def __init__(self, message, *args):
-        self.message = message or self.defaul_message
-        super(UnknownUser, self).__init__(message, *args)
+    def __init__(self, message=None, *args):
+        self.message = message or self.default_message
+        super(UnknownUser, self).__init__(self.message, *args)
