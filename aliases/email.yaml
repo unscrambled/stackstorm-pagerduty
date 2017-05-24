@@ -1,0 +1,7 @@
+---
+name: "email"
+pack: "pagerduty"
+action_ref: "st2.kv.set"
+description: "Register your pagerduty email to your Chat username"
+formats:
+  - "email <email>"

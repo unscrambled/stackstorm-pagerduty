@@ -1,0 +1,11 @@
+name: "set_email"
+description: "Pair your PagerDuty email with your chat username"
+runner_type: "python-script"
+entry_point: "set_email.py"
+enabled: true
+parameters:
+  email:
+    type: "string"
+    required: true
+    description: Your PagerDuty email address.
+
