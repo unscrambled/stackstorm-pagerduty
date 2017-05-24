@@ -8,4 +8,8 @@ parameters:
     type: "string"
     required: true
     description: Your PagerDuty email address.
-
+  api_user:
+    type: string
+    description: API/Chatops User of this action.
+    default: "{{action_context.api_user|default(None)}}"
+    immutable: true

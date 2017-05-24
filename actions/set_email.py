@@ -6,5 +6,8 @@ class AcknowldgeIncident(PDAction):
         """
         Store the user's PagerDuty email in the datastore
         """
-        key = '{}-pd_email'.format(kwargs['api_user'])
-        return self.action_service.set_value(key, email)
+        api_user = kwargs['api_user']
+        if api_user is not None:
+            key = '{}-pd_email'.format(api_user)
+            return self.action_service.set_value(key, email)
+        return (False, 'This action can only be run via Chatops')

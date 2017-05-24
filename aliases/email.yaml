@@ -1,7 +1,15 @@
 ---
 name: "email"
 pack: "pagerduty"
-action_ref: "st2.kv.set"
+action_ref: "pagerduty.email"
 description: "Register your pagerduty email to your Chat username"
 formats:
-  - "email <email>"
+  - "email {{email}}"
+result:
+  format: |
+    {% if execution.status == 'succeeded' %}
+    Thanks {{action_context.api_user}}!  I saved {{email}} as your PagerDuty email address.
+    {% else %}
+    There was a problem, see `{{execution.id}}` for more details.
+    {% endif %}
+    {~}
