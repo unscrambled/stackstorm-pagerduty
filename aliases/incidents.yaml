@@ -10,7 +10,7 @@ ack:
 result:
   format: |
     {% if execution.status == 'succeeded' %}
-    {% if len(execution.result.result.incidents) == 0 %}
+    {% if execution.result.result.incidents|length == 0 %}
     No incidents matching statuses {{execution.parameters.statuses}}
     {% else %}
     Incidents:{~}

@@ -10,8 +10,9 @@ class OpenIncidents(PDAction):
         try:
             if isinstance(statuses, basestring):
                 statuses = [s.strip() for s in statuses.split(',')]
-            results['incidents'] = self.pypd.Incident.find(
-                sort_by=sort_by, statuses=statuses, maximum=maximum)
+            for incident in self.pypd.Incident.find(
+                    sort_by=sort_by, statuses=statuses, maximum=maximum):
+                results['incidents'].append(incident.json)
             status = True
         except Exception as e:
             results['error'] = {'type': type(e).__name__, 'message': e.message}
