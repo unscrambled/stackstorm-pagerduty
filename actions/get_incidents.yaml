@@ -8,9 +8,9 @@ parameters:
     type: string
     description: "A comma separated string of a list of statuses to filter on"
     default: "triggered,acknowledged"
-  limit:
+  maximum:
     type: integer
-    description: Limit the number of incidents returned
+    description: The maximum number of incidents returned
     default: 5
   sort_by:
     type: string

@@ -4,16 +4,20 @@ pack: "pagerduty"
 action_ref: "pagerduty.get_incidents"
 description: "Display open incidents"
 formats:
-  - "incidents {{statuses=triggered,acknowledged}} {{limit=5}}"
+  - "incidents {{statuses=triggered,acknowledged}} {{maximum=5}} {{sort_by=created_at:desc}}"
 ack:
   append_url: false
 result:
   format: |
     {% if execution.status == 'succeeded' %}
+    {% if len(execution.result.result.incidents) == 0 %}
+    No incidents matching statuses {{execution.parameters.statuses}}
+    {% else %}
     Incidents:{~}
     {% for incident in execution.result.result.incidents %}
     {{incident.summary}}: {{incident.status}} at {{incident.last_status_change_at}}
     {% endfor %}
+    {% endif %}
     {% elif execution.result.result.error.type == 'UnknownUser' %}
     Oops! {{execution.result.result.error.message}}{~}
     {% else %}
